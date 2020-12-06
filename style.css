@@ -1,0 +1,149 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
+
+*{
+  box-sizing: border-box;
+}
+
+body{
+  font-family: 'Lato', sans-serif;
+  background-color: #333;
+  color: #222;
+  overflow-x: hidden; /* hides x-axis scrool*/
+  margin: 0;
+}
+
+.container{
+  background-color: #fafafa;
+  transform-origin: top left;
+  transition: transform 0.5s linear;
+  width: 100vw;
+  min-height:100vh;
+  padding: 50px;  /* brings the amazing Article to the right location*/
+}
+
+.circle-container{
+  position: fixed;
+  top: -100px; /* half circle on the top of page */
+  left: -100px;
+}
+
+
+.circle{
+  background-color: #ff7979;
+  height: 200px;
+  width: 200px;
+  border-radius: 50%;
+  position: relative;  /* to position the button */
+  transition: transform 0.5s linear;
+}
+
+.container.show-nav{
+  transform: rotate(-20deg);
+}
+
+.container.show-nav + nav li{
+  transform: translateX(0);
+  transition-delay: 0.3s;
+}
+
+.container.show-nav .circle{
+  transform: rotate(-70deg); /*shows the close button*/
+}
+
+.circle button{
+  cursor: pointer;
+  position: absolute;
+  left: 50%; /* original of circle*/
+  top: 50%;
+  height:100px;
+  background: transparent;
+  border:0;
+  font-size: 26px;
+  color: whitesmoke; 
+}
+
+.circle button:focus{
+  outline: none;
+}
+
+.circle button#open{
+  left: 60%;
+}
+
+.circle button#close{
+  top: 60%;
+  transform: rotate(90deg);
+  transform-origin: top left;
+}
+
+.content img{
+  max-width: 100%; /* 100 percent of its container*/
+} 
+
+.content {
+  max-width: 1000px; /* strectching out will give 100 px max width */
+  margin: 50px auto;
+}
+
+.content h1{
+  margin: 0;
+
+}
+
+.content small{
+  color: #555555;
+  font-family: italic;
+}
+
+content p {
+  color: #333;
+  line-height: 1.5;
+}
+
+/*
+Positioning the nav
+*/
+
+nav{
+  position: fixed;
+  bottom: 40px;
+  left:0;
+  z-index: 100;
+}
+
+nav ul{
+  list-style-type: none;
+  padding-left: 30px; /* moves to the right. Move left mean move towards right */
+}
+
+
+nav ul li{
+  text-transform: uppercase ;
+  margin : 40px 0; /* seperate from one other*/
+  /*transform: translateX(-100%); */
+  color: white;
+  transform: translateX(-100);
+  transition: transform 0.4s ease-in;
+}
+
+
+
+nav ul li i {
+font-size: 20px;
+margin-right: 15px; 
+
+}
+
+nav ul li + li{
+  margin-left: 15px; /* the li after the initial li will stick left*/
+  transform: translateX(-150);
+}
+
+nav ul li + li +li{
+  margin-left: 30px; /* the li after the initial li will stick left*/
+  transform: translateX(-200);
+}
+
+
+
